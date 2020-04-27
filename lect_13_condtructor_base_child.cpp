@@ -12,20 +12,31 @@ class father{
     }
 };
 
-class student: father{
+class mother{
+    protected:
+    string skinColor;
+
     public:
-    student(int x):father(x){
+    mother(string color){
+        skinColor = color;
+        cout<<"mother constructor is called"<<endl;
+    }
+};
+
+class student: public father,public mother{
+    public:
+    student(int x,string skinColor):father(x),mother(skinColor){
         cout<<"child class is called"<<endl;
     }
 
     void display(){
-        cout<<"height is "<< height;
+        cout<<"height is "<< height<<" skin color is "<<skinColor;
     }
 
 };
 
 int main(){
-    student satya(21);
+    student satya(21,"fair");
     
     satya.display();
     return 0;
